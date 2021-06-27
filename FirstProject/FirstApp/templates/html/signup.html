@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Signup</title>
+</head>
+<body style="margin-left: 30%; margin-right: 30%;padding: 60px">
+	<div class="card" style="padding: 15px;border: 1px solid black;">
+		<form action="{% url 'signup' %}" method="post">
+			{% csrf_token %}
+			<h3 style="text-align: center;">Registration Form</h3>
+      		<label>First name : </label>
+      		<input type="text" name="fname" placeholder="First name" required><br><br>
+      		<label>Last name : </label>
+     		<input type="text" name="lname" placeholder="Last name" required><br><br>
+     		<label>phone number : </label>
+      		<input type="tel" name="phno" placeholder="phno" required><br><br>
+      		<label>Email : </label>
+      		<input type="email" name="email" placeholder="Email Id"><br><br>
+      		<label>Gender :</label><br>
+      		<input type="radio" name="gender" id="male" value="male" placeholder="male" >
+      		<label for="male">Male</label><br>
+   			<input type="radio" name="gender" id="female" value="female" placeholder="female">
+   			<label for="female">Female</label><br><br>
+      		<label>Address : </label><br>
+      		<textarea type="text" name="add" placeholder="Address" required></textarea><br><br>
+      		<label>Languages you know :</label><br>
+      		<input type="checkbox" name="luk" value="Python" placeholder="telugu">
+      		<label for="telugu">Python</label><br>
+   			<input type="checkbox" name="luk" value="C" placeholder="english">
+   			<label for="english">C</label><br>
+      		<input type="checkbox" name="luk"  value="C++" placeholder="hindi">
+      		<label for="hindi">C++</label><br>
+      		<input type="checkbox" name="luk" placeholder="others">
+   			<label for="others">Others</label><br><br>
+  			<button class="btn btn-primary" type="submit" style="background-color: blue; color: white;">Submit form</button>
+		</form>
+	</div>
+</body>
+</html>

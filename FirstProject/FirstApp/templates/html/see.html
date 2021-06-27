@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Display Info</title>
+</head>
+<body background="{% static 'images/bg2.jpg' %}" style="background-repeat: no-repeat;background-attachment: fixed; background-size: 100% 100%">
+	<h2>Users </h2>
+	<table border="2px solid black">
+		<tr>
+			<thead>
+				<th>Username</th>
+				<th>phone number</th>
+				<th>Email ID</th>
+				<th>Gender</th>
+				<th>Address</th>
+				<th>Languagrs you know</th>
+			</thead>
+		</tr>
+		<tr>
+			<tbody>
+				<td>{{fname}} {{lname}}</td>
+				<td>{{phno}}</td>
+				<td>{{email}}</td>
+				<td>{{gender}}</td>
+				<td>{{add}}</td>
+				<td>{{luk}}</td>
+			</tbody>
+		</tr>
+	</table>
+</body>
+</html>
