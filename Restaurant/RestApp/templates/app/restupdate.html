@@ -5,7 +5,7 @@
 	<div class="card col-md-6 mx-auto shadow-lg">
 		<div class="card-body">
 			<h3>Restaurant Update</h3>
-			<form method="post" enctype="multipart/form-data">
+			<form method="post">
 				{% csrf_token %}
 				{% for t in x %}
 					{{t}}

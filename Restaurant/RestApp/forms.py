@@ -4,7 +4,7 @@ from django import forms
 class ReForm(forms.ModelForm):
 	class Meta:
 		model = Restaurant
-		fields = ["rname","nitems","timings","rsimg","address"]
+		fields = ["rname","nitems","timings","address"]
 		widgets = {
 		"rname":forms.TextInput(attrs={
 			"class":"form-control my-2",
