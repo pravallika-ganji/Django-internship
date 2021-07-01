@@ -2,9 +2,9 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% load static %}
-<div class="container-fluid mt-4 mx-auto">
+<div class="container my-4">
   <div class="col-md">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide mt-4 " data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -38,5 +38,16 @@
     <span class="sr-only">Next</span>
   </a>
 </div></div>
+  <!-- <h1 class="text-center"><u>Restaurants</u></h1> -->
+  <div class="row">
+    {% for z in y %}
+    <div class="card col-md-3 mt-3 text-center" >
+      <h3 class="mt-4"><a href="{% url 'rsvw' z.id %}">{{z.rname}}</a></h3>
+      <img src="{{z.rsimg.url}}" alt="" width="200" class="center mx-auto" style="height: 160px; object-fit: contain; ">
+      <p>Items: {{z.nitems}}</p>
+      <p>Timings: {{z.timings}}</p>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="card col-md-4 shadow-lg mx-2">
       <div class="card-body">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
         <h3 class="text-center text-ligth bg-secondary p-2 border rounded">Add Restaurant</h3>
         {% for j in q %}
@@ -23,21 +23,22 @@
     </div>
     <div class="card col-md shadow-lg mx-2">
       <div class="card-body">
-        <h3 class="text-center text-primary bg-dark p-2 border rounded">List of Restaurant</h3>
+        <h3 class="text-center text-light bg-dark p-2 border rounded">List of Restaurant</h3>
         <table class="table table-borderless table-hover">
-          <tr>
+          <tr class="bg-dark text-light">
             <th>S.no</th>
             <th>Restaurant Name</th>
             <th>Number of items</th>
             <th>timings</th>
+            <th>Operations</th>
           </tr>
           {% for k in a %}
           <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{k.rname}}</td>
+            <td><a href="{% url 'rsvw' k.id %}">{{k.rname}}</a></td>
             <td>{{k.nitems}}</td>
             <td>{{k.timings}}</td>
-            <td><a href="{% url 'rsup' k.id %}" class="btn btn-outline-warning mx-2">Update</a><a href="#" class="btn btn-outline-danger mx-2">Delete</a></td>
+            <td><a href="{% url 'rsup' k.id %}" class="btn btn-outline-warning mx-2">Update</a><a href="{% url 'rsd' k.id %}" class="btn btn-outline-danger mx-2">Delete</a></td>
           </tr>
           {% endfor %}
         </table>

@@ -6,7 +6,8 @@ from RestApp.models import Restaurant
 
 # Create your views here.
 def home(request):
-	return render(request,'app/home.html')
+	d = Restaurant.objects.all()
+	return render(request,'app/home.html',{'y':d})
 
 def about(request):
 	return render(request,'app/about.html')
@@ -17,7 +18,7 @@ def contact(request):
 def restlist(request):
 	y = Restaurant.objects.all()
 	if(request.method=="POST"):
-		t = ReForm(request.POST)
+		t = ReForm(request.POST,request.FILES)
 		if t.is_valid():
 			t.save()
 			return redirect("/rlist")
@@ -27,15 +28,23 @@ def restlist(request):
 def rstup(request,m):
 	k = Restaurant.objects.get(id=m)
 	if request.method == "POST":
-		e = ReForm(request.POST,instance=k)
+		e = ReForm(request.POST,request.FILES,instance=k)
 		if e.is_valid():
 			e.save()
 			return redirect('/rlist')
 	e = ReForm(instance=k)
 	return render(request,'app/restupdate.html',{'x':e})
 
+def rstdl(request,n):
+	v = Restaurant.objects.get(id=n)
+	if request.method == "POST":
+		v.delete()
+		return redirect('/rlist')
+	return render(request,'app/restdelete.html',{'q':v})
 
-
+def rstvw(request,a):
+	b = Restaurant.objects.get(id=a)
+	return render(request,'app/restview.html',{'z':b})
 
 
 

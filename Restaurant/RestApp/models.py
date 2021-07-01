@@ -6,3 +6,4 @@ class Restaurant(models.Model):
 	nitems = models.IntegerField()
 	timings = models.CharField(max_length = 50)
 	address = models.CharField(max_length = 50)
+	rsimg = models.ImageField(upload_to = 'Restaurantimages/',default = 'cornpizza.jpg')
